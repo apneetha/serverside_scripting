@@ -1,0 +1,57 @@
+<!Doctype HTML>
+<html>
+   <head>
+      <link type="text/css" rel="stylesheet" href="style.css">
+      <script src="business.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      function clearall()
+      {
+         document.getElementById('location').disabled=false;
+         document.getElementById('table').innerHTML = '';
+         document.getElementById('detailed-values').innerHTML = '';
+         document.getElementById('detailed-values').style.display = 'none';
+      }
+      </script>
+   </head>
+   <body >
+      <div class="form_div">
+         <div class="image">
+            <img src="static/banner.jpeg">
+            <div class="top-text"><b>Business Search</b></div>
+            <div class="bottom-text">Fill out the form to get businesses near you!</div>
+         </div>
+         <div class="imageform">
+            <form class="form"onsubmit="check2()">
+               <label for="keyword" class="label">Keyword</label>
+               <input type="text" id="keyword" name="keyword" required/><br>
+               <div class="form_left">
+                  <label class="label" for="distance" >Distance(miles)</label><br>
+                  <input type="text" inputmode="numeric" value="10" id="distance" name="distance" >
+               </div>
+               <div class="dropdown">
+                  <label for="cat" class="label" >Category</label><br>
+                  <select name="categories" id="cat">
+                     <option value="default">Default</option>
+                     <option>Arts & Entertainment</option>
+                     <option >Health & Medical</option>
+                     <option>Hotels & Travel</option>
+                     <option>Food</option>
+                     <option>Professional Services</option>
+                  </select>
+               </div>
+               <label for="location" class="label">Location</label>
+               <input type="text"  id="location" name="location" required>
+               <hr style="border: 0.5px solid #506ead;">
+               <label id="want">Want us to auto-detect your location? Check here
+               <input type="checkbox" id="autolocation" class="autolocation" onclick="document.getElementById('location').disabled=this.checked;">
+               </label>
+               <br>
+               <input id="button" type="submit" value="SUBMIT">
+               <button id="clear" type="reset" onclick="clearall()">CLEAR</button>
+            </form>
+         </div>
+      </div>
+      <div id="table"></div>
+      <div id="detailed-values" hidden></div>
+   </body>
+</html>
